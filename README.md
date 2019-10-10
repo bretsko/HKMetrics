@@ -1,3 +1,3 @@
 # HKMetrics
 
-A description of this package.
+Convenient way to handle HealthKit activity types, iOS 
