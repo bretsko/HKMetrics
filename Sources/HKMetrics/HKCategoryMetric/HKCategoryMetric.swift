@@ -1,9 +1,10 @@
 
 
-import HealthKit
+
+
 
 /// HKCategoryTypeIdentifier 
-public enum HKCategoryMetric: String {
+public enum HKCategoryMetric: Str, HKMetricT {
     
     case sleepAnalysis
     
@@ -44,8 +45,9 @@ public enum HKCategoryMetric: String {
     case toothbrushingEvent
 }
 public extension HKCategoryMetric {
+    
     var hkMetric: HKMetric {
-        return HKMetric.category(self)
+        .category(self)
     }
 }
 

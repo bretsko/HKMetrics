@@ -27,16 +27,17 @@ public extension HKCharacteristicMetric {
             return .wheelchairUse
         }
     }
-
+    
+    typealias HKObjType = HKCharacteristicType
     var type: HKCharacteristicType {
-        return id.type
+        id.type
     }
 }
 
 public extension HKCharacteristicTypeIdentifier {
     
     var type: HKCharacteristicType {
-        return HKCharacteristicType.characteristicType(forIdentifier: self)!
+        .characteristicType(forIdentifier: self)!
     }
 }
 

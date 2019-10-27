@@ -1,12 +1,11 @@
-// swift-tools-version:5.1
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.3
 
 import PackageDescription
 
 let package = Package(
     name: "HKMetrics",
     platforms: [
-        .iOS(.v12), .watchOS(.v4) //, .macOS(.v10_12), .tvOS(.v10),
+        .iOS(.v14) //.watchOS(.v4) , .macOS(.v10_12), .tvOS(.v10),
     ],
     products: [
         .library(
@@ -14,14 +13,20 @@ let package = Package(
             targets: ["HKMetrics"]),
     ],
     dependencies: [
+        
+            .package(url: "https://github.com/bretsko/Base", from: "1.0.0"),
+
+            .package(url: "https://github.com/bretsko/Quick", from: "2.2.1"),
+            .package(url: "https://github.com/bretsko/Nimble", from: "8.0.5"),
     ],
     targets: [
         .target(
             name: "HKMetrics",
-            dependencies: []),
+            dependencies: ["Base"]),
         
-        // .testTarget(
-        //     name: "HKMetricsTests",
-        //     dependencies: ["HKMetrics"]),
+        .testTarget(
+            name: "HKMetricsTests",
+            dependencies: ["HKMetrics",
+                           "Quick", "Nimble"]),
     ]
 )

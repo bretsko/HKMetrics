@@ -1,6 +1,6 @@
 
 
-import HealthKit
+
 
 
 public extension HKCorrelationMetric {
@@ -14,14 +14,15 @@ public extension HKCorrelationMetric {
         }
     }
     
+    typealias HKObjType = HKCorrelationType
     var type: HKCorrelationType {
-        return id.type
+        id.type
     }
 }
 public extension HKCorrelationTypeIdentifier {
     
     var type: HKCorrelationType {
-        return HKCorrelationType.correlationType(forIdentifier: self)!
+        .correlationType(forIdentifier: self)!
     }
 }
 

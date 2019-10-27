@@ -1,6 +1,6 @@
 
 
-import HealthKit
+
 
 
 public extension HKQuantityMetric {
@@ -31,8 +31,8 @@ public extension HKQuantityMetric {
             return .waistCircumference
             
             
-            //MARK: Fitness
-            
+        //MARK: Fitness
+        
         /// Scalar(Count),Cumulative
         case .stepCount:
             return .stepCount
@@ -92,10 +92,10 @@ public extension HKQuantityMetric {
         /// Time,Cumulative
         case .appleStandTime:
             fatalError()
-            //return .appleStandTime
-            
-            // Vitals
-            
+        //return .appleStandTime
+        
+        // Vitals
+        
         /// Scalar(Count)/Time, Discrete
         case .heartRate:
             return .heartRate
@@ -120,24 +120,24 @@ public extension HKQuantityMetric {
         case .respiratoryRate:
             return .respiratoryRate
             
-            // Beats per minute estimate of a user's lowest heart rate while at rest
+        // Beats per minute estimate of a user's lowest heart rate while at rest
         /// Scalar(Count)/Time, Discrete
         case .restingHeartRate:
             return .restingHeartRate
             
-            // Average heartbeats per minute captured by an Apple Watch while a user is walking
+        // Average heartbeats per minute captured by an Apple Watch while a user is walking
         /// Scalar(Count)/Time, Discrete
         case .walkingHeartRateAverage:
             return .walkingHeartRateAverage
             
-            // The standard deviation of heart beat-to-beat intevals (Standard Deviation of Normal to Normal)
+        // The standard deviation of heart beat-to-beat intevals (Standard Deviation of Normal to Normal)
         /// Time (ms), Discrete
         case .heartRateVariabilitySDNN:
             return .heartRateVariabilitySDNN
             
             
-            // Results
-            
+        // Results
+        
         /// Scalar (Percent, 0.0 - 1.0,  Discrete
         case .oxygenSaturation:
             return .oxygenSaturation
@@ -185,16 +185,16 @@ public extension HKQuantityMetric {
         /// Pressure,  Cumulative
         case .environmentalAudioExposure:
             fatalError()
-            //return .environmentalAudioExposure
-
+        //return .environmentalAudioExposure
+        
         /// Pressure,  Cumulative
         case .headphoneAudioExposure:
             fatalError()
-            //return .headphoneAudioExposure
-            
-            
-            // Nutrition
-            
+        //return .headphoneAudioExposure
+        
+        
+        // Nutrition
+        
         /// Mass, Cumulative
         case .dietaryFatTotal:
             return .dietaryFatTotal
@@ -354,18 +354,19 @@ public extension HKQuantityMetric {
         /// Scalar (Count), Discrete
         case .uvExposure:
             return .uvExposure
-
+            
         }
     }
     
+    typealias HKObjType = HKQuantityType
     var type: HKQuantityType {
-        return id.type
+        id.type
     }
 }
 public extension HKQuantityTypeIdentifier {
     
     var type: HKQuantityType {
-        return HKQuantityType.quantityType(forIdentifier: self)!
+        .quantityType(forIdentifier: self)!
     }
 }
 

@@ -1,9 +1,8 @@
 
 
-import HealthKit
 
 /// HKCharacteristicTypeIdentifier
-public enum HKCharacteristicMetric: String {
+public enum HKCharacteristicMetric: Str, HKMetricT {
     
     case biologicalSex
     
@@ -20,7 +19,8 @@ public enum HKCharacteristicMetric: String {
     case wheelchairUse
 }
 public extension HKCharacteristicMetric {
+    
     var hkMetric: HKMetric {
-        return HKMetric.characteristic(self)
+         HKMetric.characteristic(self)
     }
 }

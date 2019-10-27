@@ -1,6 +1,6 @@
 
 
-import HealthKit
+
 
 
 public extension HKCategoryMetric {
@@ -41,38 +41,39 @@ public extension HKCategoryMetric {
         /// HKCategoryValue
         case .highHeartRateEvent:
             fatalError()
-            //return .highHeartRateEvent
-            
+        //return .highHeartRateEvent
+        
         /// HKCategoryValue
         case .lowHeartRateEvent:
             fatalError()
-            //return .lowHeartRateEvent
-            
+        //return .lowHeartRateEvent
+        
         /// HKCategoryValue
         case .irregularHeartRhythmEvent:
             fatalError()
-            //return .irregularHeartRhythmEvent
-            
+        //return .irregularHeartRhythmEvent
+        
         /// HKCategoryValueAudioExposureEvent
         case .audioExposureEvent:
             fatalError()
-            //return .audioExposureEvent
-            
+        //return .audioExposureEvent
+        
         /// HKCategoryValue
         case .toothbrushingEvent:
             fatalError()
-            //return .toothbrushingEvent
+        //return .toothbrushingEvent
         }
     }
     
+    typealias HKObjType = HKCategoryType
     var type: HKCategoryType {
-        return id.type
+        id.type
     }
 }
 public extension HKCategoryTypeIdentifier {
     
     var type: HKCategoryType {
-        return HKCategoryType.categoryType(forIdentifier: self)!
+        .categoryType(forIdentifier: self)!
     }
 }
 

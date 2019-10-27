@@ -1,26 +1,26 @@
 
 
 
-@_exported import HealthKit
+@_exported 
 
 
-extension HKMetric: LosslessStringConvertible {
+extension HKMetric: StrConvertibleP {
     
-    public init?(_ rawValue: String) {
-        if let a = HKQuantityMetric(rawValue: rawValue) {
+    public init?(_ str: Str) {
+        if let a = HKQuantityMetric(rawValue: str) {
             self = .quantity(a)
-        } else if let a = HKCategoryMetric(rawValue: rawValue) {
+        } else if let a = HKCategoryMetric(rawValue: str) {
             self = .category(a)
-        } else if let a = HKCorrelationMetric(rawValue: rawValue) {
+        } else if let a = HKCorrelationMetric(rawValue: str) {
             self = .correlation(a)
-        } else if let a = HKCharacteristicMetric(rawValue: rawValue) {
+        } else if let a = HKCharacteristicMetric(rawValue: str) {
             self = .characteristic(a)
         } else {
             return nil
         }
     }
     
-    public var description: String {
+    public var descr: String {
         var r = "HKMetric, "
         switch self {
         case .quantity(let a):
@@ -39,6 +39,6 @@ extension HKMetric: LosslessStringConvertible {
 public extension HKObjectType {
     
     var hkMetric: HKMetric? {
-        return HKMetric(identifier)
+        HKMetric(identifier)
     }
 }

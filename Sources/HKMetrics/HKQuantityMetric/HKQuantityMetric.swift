@@ -1,10 +1,10 @@
 
 
-import HealthKit
+
 
 
 /// HKQuantityTypeIdentifier
-public enum HKQuantityMetric: String {
+public enum HKQuantityMetric: Str, HKMetricT {
     
     case bodyMassIndex
     
@@ -270,7 +270,8 @@ public enum HKQuantityMetric: String {
     case uvExposure
 }
 public extension HKQuantityMetric {
+    
     var hkMetric: HKMetric {
-        return HKMetric.quantity(self)
+        .quantity(self)
     }
 }
